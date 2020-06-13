@@ -11,6 +11,18 @@
   },
   "plugins": ["@typescript-eslint"],
   "rules": {
-    "no-console": "off"
+    "no-console": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never"
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
   }
 }
