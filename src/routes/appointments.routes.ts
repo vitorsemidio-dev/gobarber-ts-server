@@ -17,27 +17,26 @@ appointmentsRouter.post('/', (request, response) => {
 
   const parsedDate = startOfHour(parseISO(date));
   const findAppointmentInSameDate = appointments.find(appointment =>
-    isEqual(appointment.date, parsedDate)
+    isEqual(appointment.date, parsedDate),
   );
 
   if (findAppointmentInSameDate) {
-    response.status(400).json({ message: 'This appointment is already booked.' });
+    response
+      .status(400)
+      .json({ message: 'This appointment is already booked.' });
   }
 
   const appointment = {
     id: uuid(),
     provider,
     date: parsedDate,
-  }
+  };
 
   appointments.push(appointment);
 
   return response.json(appointment);
 });
 
-appointmentsRouter.get('/', (request, response) => {
-
-  return response.json(appointments);
-});
+appointmentsRouter.get('/', (request, response) => response.json(appointments));
 
 export default appointmentsRouter;
