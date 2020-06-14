@@ -3,7 +3,13 @@ import { uuid } from 'uuidv4';
 
 const appointmentsRouter = Router();
 
-const appointments = [];
+interface Appointment {
+  id: string;
+  provider: string;
+  date: Date;
+}
+
+const appointments: Appointment[] = [];
 
 appointmentsRouter.post('/', (request, response) => {
   const { provider, date } = request.body;
@@ -17,6 +23,11 @@ appointmentsRouter.post('/', (request, response) => {
   appointments.push(appointment);
 
   return response.json(appointment);
+});
+
+appointmentsRouter.get('/', (request, response) => {
+
+  return response.json(appointments);
 });
 
 export default appointmentsRouter;
