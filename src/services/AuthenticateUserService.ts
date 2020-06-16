@@ -2,6 +2,8 @@ import { getRepository } from 'typeorm';
 import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
 
+import authConfig from '../config/auth';
+
 import User from '../models/User';
 
 interface Request {
@@ -18,12 +20,7 @@ class AuthenticateUserService {
   public async execute({ email, password }: Request): Promise<Response> {
     const usersRepository = getRepository(User);
 
-    const secretMd5 = process.env.MD5_HASH;
-
-    // TODO: Remove
-    if (!secretMd5) {
-      throw new Error('Secret is missing');
-    }
+    const { expiresIn, secret } = authConfig.jwt;
 
     const user = await usersRepository.findOne({
       where: { email },
@@ -39,9 +36,9 @@ class AuthenticateUserService {
       throw new Error('Incorrect email/password combination.');
     }
 
-    const token = sign({}, secretMd5, {
+    const token = sign({}, secret, {
       subject: user.id,
-      expiresIn: '1h',
+      expiresIn,
     });
 
     return {
