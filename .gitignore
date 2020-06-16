@@ -5,3 +5,6 @@ dist
 !.vscode/launch.json
 
 .env
+
+tmp/*
+!tmp/.gitkeep
