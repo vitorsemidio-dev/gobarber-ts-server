@@ -10,3 +10,5 @@ tmp/*
 !tmp/.gitkeep
 
 yarn-error.log
+
+coverage
