@@ -2,7 +2,7 @@ import { Router } from 'express';
 import multer from 'multer';
 import uploadConfig from '@config/upload';
 
-import UsersRepository from '@modules/users/infra/typeorm/repositories/UserRepository';
+import UsersRepository from '@modules/users/infra/typeorm/repositories/UsersRepository';
 import CreateUserService from '@modules/users/services/CreateUserService';
 import UpdateUserAvatarService from '@modules/users/services/UpdateUserAvatarService';
 
