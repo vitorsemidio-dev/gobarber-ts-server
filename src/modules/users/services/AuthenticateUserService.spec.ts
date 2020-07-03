@@ -10,7 +10,11 @@ describe('AuthenticateUser', () => {
     const fakeUsersRepository = new FakeUsersRepository();
     const fakeHashProvider = new FakeHashProvider();
 
-    const authenticateUser = new AuthenticateUserService(fakeUsersRepository);
+    const authenticateUser = new AuthenticateUserService(
+      fakeUsersRepository,
+      fakeHashProvider,
+    );
+
     const createUserService = new CreateUserService(
       fakeUsersRepository,
       fakeHashProvider,
