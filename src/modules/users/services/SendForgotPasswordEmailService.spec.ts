@@ -13,6 +13,7 @@ describe('SendForgotPasswordEmailService', () => {
 
     const sendForgotPasswordEmail = new SendForgotPasswordEmailService(
       fakeUsersRepository,
+      fakeMailProvider,
     );
 
     await fakeUsersRepository.create({
