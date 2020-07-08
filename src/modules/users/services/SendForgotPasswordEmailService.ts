@@ -1,6 +1,6 @@
 import { inject, injectable } from 'tsyringe';
 
-// import AppError from '@shared/errors/AppError';
+import AppError from '@shared/errors/AppError';
 import IMailProvider from '@shared/container/providers/MailProvider/models/IMailProvider';
 import IUsersRepository from '../repositories/IUsersRepository';
 
@@ -18,6 +18,11 @@ class SendForgotPasswordEmailService {
   ) {}
 
   public async execute({ email }: IRequest): Promise<void> {
+    const checkUserExists = await this.usersRepository.findByEmail(email);
+
+    if (!checkUserExists) {
+      throw new AppError('User does not exist');
+    }
     this.mailRepository.sendMail(
       email,
       'Pedido de Recuperação de senha recebido',
