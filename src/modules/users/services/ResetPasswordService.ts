@@ -1,6 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 
-// import AppError from '@shared/errors/AppError';
+import AppError from '@shared/errors/AppError';
+
 import IUsersRepository from '../repositories/IUsersRepository';
 import IUserTokensRepository from '../repositories/IUserTokensRepository';
 
@@ -17,7 +18,23 @@ class ResetPasswordService {
     private userTokensRepository: IUserTokensRepository,
   ) {}
 
-  public async execute({ password, token }: IRequest): Promise<void> {}
+  public async execute({ password, token }: IRequest): Promise<void> {
+    const tokenUser = await this.userTokensRepository.findByToken(token);
+
+    if (!tokenUser) {
+      throw new AppError('User Token does not exists');
+    }
+
+    const user = await this.usersRepository.findById(tokenUser.user_id);
+
+    if (!user) {
+      throw new AppError('User does not exists');
+    }
+
+    user.password = password;
+
+    await this.usersRepository.save(user);
+  }
 }
 
 export default ResetPasswordService;
