@@ -11,8 +11,8 @@ interface IRequest {
   user_id: string;
   name: string;
   email: string;
-  password: string;
-  old_password: string;
+  password?: string;
+  old_password?: string;
 }
 
 injectable();
@@ -37,27 +37,33 @@ export default class UpdateProfileService {
       throw new AppError('User does not exists');
     }
 
-    if (user.email !== email) {
-      const checkEmail = await this.usersRepository.findByEmail(email);
+    const userWithUpdatedEmail = await this.usersRepository.findByEmail(email);
 
-      if (checkEmail && checkEmail.id !== user.id) {
-        throw new AppError('Email is already used by other user');
+    if (userWithUpdatedEmail && userWithUpdatedEmail.id !== user.id) {
+      throw new AppError('E-mail already in use');
+    }
+
+    user.name = name;
+    user.email = email;
+
+    if (password && !old_password) {
+      throw new AppError(
+        'You need to inform the old password to set a new password.',
+      );
+    }
+
+    if (password && old_password) {
+      const checkOldPassword = await this.hashProvider.compareHash(
+        old_password,
+        user.password,
+      );
+
+      if (!checkOldPassword) {
+        throw new AppError('Old password does not match.');
       }
+
+      user.password = await this.hashProvider.generateHash(password);
     }
-
-    if (password && password !== old_password) {
-      throw new AppError('Password does not match');
-    }
-
-    const passwordHashed = password
-      ? await this.hashProvider.generateHash(password)
-      : user.password;
-
-    Object.assign(user, {
-      name,
-      email,
-      password: passwordHashed,
-    });
 
     await this.usersRepository.save(user);
 
