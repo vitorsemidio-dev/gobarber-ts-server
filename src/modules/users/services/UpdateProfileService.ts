@@ -15,7 +15,7 @@ interface IRequest {
   old_password?: string;
 }
 
-injectable();
+@injectable()
 export default class UpdateProfileService {
   constructor(
     @inject('UsersRepository')
