@@ -36,7 +36,7 @@ describe('UpdateUserAvatar', () => {
   });
 
   it('should be not able to update avatar from non-existing user', async () => {
-    expect(
+    await expect(
       updateUserAvatar.execute({
         user_id: 'non-existing-user',
         avatarFilename: 'avatar.jpg',
