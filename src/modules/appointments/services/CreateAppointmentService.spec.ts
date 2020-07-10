@@ -9,13 +9,17 @@ let createAppointment: CreateAppointmentService;
 
 let pastDate: Date;
 let currentDate: Date;
-let futureDate: Date;
+let futureDateInTheSameDay: Date;
+let invalidTomorrowDateBeforeOpen: Date;
+let invalidTomorrowDateAfterClose: Date;
 
 describe('Create Appointment', () => {
   beforeAll(() => {
     pastDate = new Date(2020, 12, 10, 9);
     currentDate = new Date(2020, 12, 10, 12);
-    futureDate = new Date(2020, 12, 10, 16);
+    futureDateInTheSameDay = new Date(2020, 12, 10, 16);
+    invalidTomorrowDateBeforeOpen = new Date(2020, 12, 11, 7);
+    invalidTomorrowDateAfterClose = new Date(2020, 12, 11, 19);
   });
 
   beforeEach(() => {
@@ -33,7 +37,7 @@ describe('Create Appointment', () => {
 
     const appointment = await createAppointment.execute({
       user_id: 'user_id',
-      date: futureDate,
+      date: futureDateInTheSameDay,
       provider_id: 'provider_id',
     });
 
@@ -46,7 +50,7 @@ describe('Create Appointment', () => {
       return currentDate.getTime();
     });
 
-    const appointmentDate = futureDate;
+    const appointmentDate = futureDateInTheSameDay;
 
     await createAppointment.execute({
       user_id: 'user_id',
@@ -84,9 +88,31 @@ describe('Create Appointment', () => {
 
     await expect(
       createAppointment.execute({
-        date: futureDate,
+        date: futureDateInTheSameDay,
         provider_id: 'same_user_id',
         user_id: 'same_user_id',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
+  });
+
+  it('should not be able to create an appointment before 8am and after 17pm', async () => {
+    jest.spyOn(Date, 'now').mockImplementationOnce(() => {
+      return currentDate.getTime();
+    });
+
+    await expect(
+      createAppointment.execute({
+        date: invalidTomorrowDateBeforeOpen,
+        provider_id: 'provider_id',
+        user_id: 'user_id',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
+
+    await expect(
+      createAppointment.execute({
+        date: invalidTomorrowDateAfterClose,
+        provider_id: 'provider_id',
+        user_id: 'user_id',
       }),
     ).rejects.toBeInstanceOf(AppError);
   });
