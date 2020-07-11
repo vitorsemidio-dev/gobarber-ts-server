@@ -12,3 +12,5 @@ tmp/*
 yarn-error.log
 
 coverage
+
+ormconfig.json
