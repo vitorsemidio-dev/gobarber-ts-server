@@ -100,6 +100,33 @@ Deve-se criar o arquivo **ormconfig.json** e preenchê-lo com os dados de acordo
 ]
 ```
 
+### .env
+
+Necessário preencher os valores das variáveis ambientes. Obs: substituir o **localhost** do **APP_API_URL** pelo IP da máquina para que o mobile (Android) consiga se consiga se comunicar com a API.
+
+```
+# Application
+APP_SECRET=
+APP_WEB_URL=http://localhost:3000
+APP_API_URL=http://localhost:3333
+
+
+# Mail
+MAIL_DRIVER=ethereal
+
+
+# Amazon
+AWS_ACESS_KEY_ID=
+AWS_SECRET_ACESS_KEY_ID=
+
+
+# Redis
+REDIS_HOST=localhost
+REDIS_PORT=6379
+REDIS_PASS=
+
+```
+
 ## 🎲 Como rodar o projeto
 
 ```bash
