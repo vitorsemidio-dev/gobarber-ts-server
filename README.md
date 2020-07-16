@@ -1,5 +1,20 @@
 # Go Barber Server
 
+<h1 align="center">
+  <img src="https://img.shields.io/static/v1?label=&message=github&color=5e5e5e&style=for-the-badge&logo=github"/>
+  <img src="https://img.shields.io/static/v1?label=&message=jest&color=5e5e5e&style=for-the-badge&logo=jest"/>
+  <img src="https://img.shields.io/static/v1?label=&message=mongodb&color=5e5e5e&style=for-the-badge&logo=mongodb"/>
+  <img src="https://img.shields.io/static/v1?label=&message=node.js&color=5e5e5e&style=for-the-badge&logo=node.js"/>
+  <img src="https://img.shields.io/static/v1?label=&message=postgresql&color=5e5e5e&style=for-the-badge&logo=postgresql"/>
+  <img src="https://img.shields.io/static/v1?label=&message=redis&color=5e5e5e&style=for-the-badge&logo=redis"/>
+  <img src="https://img.shields.io/static/v1?label=&message=typescript&color=5e5e5e&style=for-the-badge&logo=typescript"/>
+  <img src="https://img.shields.io/static/v1?label=&message=visual-studio-code&color=5e5e5e&style=for-the-badge&logo=visual-studio-code"/>
+</h1>
+
+## Sobre o projeto
+
+Aplicação desenvolvida para armazenar e servir os dados do GoBarber. Possui conexão com bancos de dados PostgreSQL, MongoDB e Redis.
+
 Tabela de conteúdos
 =================
 <!--ts-->
@@ -12,10 +27,6 @@ Tabela de conteúdos
 * [Features](#features)
 * [🛠 Tecnologias](#🛠-tecnologias)
 <!--te-->
-
-## Badges
-
-<img src="https://img.shields.io/static/v1?label=Blog&message=Rocketseat&color=7159c1&style=for-the-badge&logo=gatsby"/>
 
 ## Pré-requisitos
 
