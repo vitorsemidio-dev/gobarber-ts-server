@@ -19,11 +19,11 @@ Tabela de conteúdos
 =================
 <!--ts-->
 * [Tabela de Conteudo](#tabela-de-conteudo)
-* [Como usar](#como-usar)
 * [Pré-requisitos](#pré-requisitos)
   * [Docker](#docker)
   * [ORM COnfig](#ORMConfig)
 * [🎲 Como rodar o projeto](#🎲-como-rodar-o-projeto)
+* [Rotas da Aplicação](#rotas-da-aplicação)
 * [Features](#features)
 * [🛠 Tecnologias](#🛠-tecnologias)
 * [🧪 Testes](#🧪-testes)
@@ -120,6 +120,46 @@ $ npm run dev
 
 # O servidor inciará na porta:3333 - acesse <http://localhost:3333>
 ```
+
+## Rotas da Aplicação
+
+### appointments
+
+`POST /appointments`
+
+`GET /appointments/me`
+
+
+### providers
+
+`GET /providers`
+
+`GET /providers/:provider_id/day-availability`
+
+`GET /providers/:provider_id/month-availability`
+
+### users
+
+`POST /users`
+
+`PATCH /users/avatar`
+
+### sessions
+
+`POST /sessions`
+
+### password
+
+`POST /password/reset`
+
+`POST /password/forgot`
+
+### profile
+
+`PUT /profile`
+
+`GET /profile`
+
 
 ## Features
 
