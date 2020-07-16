@@ -11,25 +11,26 @@
   <img src="https://img.shields.io/static/v1?label=&message=visual-studio-code&color=5e5e5e&style=for-the-badge&logo=visual-studio-code"/>
 </h1>
 
-## Sobre o projeto
+## 🔮 Sobre o projeto
 
 Aplicação desenvolvida para armazenar e servir os dados do GoBarber. Possui conexão com bancos de dados PostgreSQL, MongoDB e Redis.
 
-Tabela de conteúdos
-=================
+## 📚 Tabela de Conteúdo
+
 <!--ts-->
-* [Tabela de Conteudo](#tabela-de-conteudo)
-* [Pré-requisitos](#pré-requisitos)
+* [🔮 Sobre o projeto](#🔮-sobre-o-projeto)
+* [📚 Tabela de Conteudo](#📚-tabela-de-conteúdo)
+* [🛑 Pré-requisitos](#🛑-pré-requisitos)
   * [Docker](#docker)
   * [ORM COnfig](#ORMConfig)
 * [🎲 Como rodar o projeto](#🎲-como-rodar-o-projeto)
-* [Rotas da Aplicação](#rotas-da-aplicação)
-* [Features](#features)
+* [🌎 Rotas da Aplicação](#🌎-rotas-da-aplicação)
+* [📜 Features](#📜-features)
 * [🛠 Tecnologias](#🛠-tecnologias)
 * [🧪 Testes](#🧪-testes)
 <!--te-->
 
-## Pré-requisitos
+## 🛑 Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 [Docker](https://docs.docker.com/engine/install/ubuntu/), [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/)
@@ -121,7 +122,7 @@ $ npm run dev
 # O servidor inciará na porta:3333 - acesse <http://localhost:3333>
 ```
 
-## Rotas da Aplicação
+## 🌎 Rotas da Aplicação
 
 ### appointments
 
@@ -161,7 +162,7 @@ $ npm run dev
 `GET /profile`
 
 
-## Features
+## 📜 Features
 
 - [x] Cadastro de usuários
 - [x] Atualização do perfil do usuário
