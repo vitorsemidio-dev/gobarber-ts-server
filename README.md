@@ -8,7 +8,8 @@ Tabela de conteúdos
 * [Pré-requisitos](#pré-requisitos)
   * [Docker](#docker)
   * [ORM COnfig](#ORMConfig)
-* [Como rodar o projeto](#como-rodar-o-projeto)
+* [🎲 Como rodar o projeto](#🎲-como-rodar-o-projeto)
+* [Features](#features)
 <!--te-->
 
 ## Badges
@@ -17,25 +18,28 @@ Tabela de conteúdos
 
 ## Pré-requisitos
 
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Docker](https://docs.docker.com/engine/install/ubuntu/), [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/)
+
+
 ### Docker
 
-Deve-se ter o docker instalado para utilizar as imagens dos bancos de dados necessários para aplicação.
+Após o **Docker** instalado, é necessário criar imagens dos bancos de dados que serão utilizados na aplicação. Pode copiar as linhas de comandos e colar no terminal para já instalar as imagens necessárias, ou seguir o passo a passa da documentação nos links.
 
-Instalação PostgreSQL:
+[Documentação detalhada PostgreSQL](https://hub.docker.com/_/postgres) ou Instalação PostgreSQL:
 
 ```
 # Imagem do PostgreSQL com nome "gobarber_postgres", rodando na porta 5432 e com senha "docker"
 $ docker run --name gobarber_postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
 ```
-
-Instalação MongoDB:
+[Documentação detalhada Mongo](https://hub.docker.com/_/mongo) ou Instalação MongoDB:
 
 ```
 # Imagem do Mongo com nome "gobarber_mongodb" rodando na porta 27017
 $ docker run --name gobarber_mongodb -p 27017:27017 -d -t mongo
 ```
 
-Instalação Redis:
+[Documentação detalhada Redis](https://hub.docker.com/_/redis) ou Instalação Redis:
 
 ```
 # Imagem do Redis com nome "gobarber_redis" rodando na porta 6379
@@ -82,5 +86,34 @@ Deve-se criar o arquivo **ormconfig.json** e preenchê-lo com os dados de acordo
 ]
 ```
 
-## Como rodar o projeto
+## 🎲 Como rodar o projeto
 
+```bash
+# Inicie os containers do docker
+# Obs: utilize os nomes que usou ao criá-los
+$ docker start gobarber_postgres gobarber_redis gobarber_mongodb
+
+# Clone este repositório
+$ git clone git@github.com:vitorsemidio-dev/gobarber-ts-server.git
+
+# Acesse a pasta do projeto no terminal/cmd
+$ cd gobarber-ts-server
+
+# Instale as dependências
+$ npm install
+
+# Execute a aplicação em modo de desenvolvimento
+$ npm run dev
+
+# O servidor inciará na porta:3333 - acesse <http://localhost:3333>
+```
+
+## Features
+
+- [x] Cadastro de usuários
+- [x] Atualização do perfil do usuário
+- [x] Atualização avatar do usuário logado
+- [x] Criar agendamento em horários disponíveis
+- [x] SignIn/SignOut
+- [x] Listagem dos agendamentos do dia por data
+- [x] Envio de e-mail
