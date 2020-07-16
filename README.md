@@ -10,6 +10,7 @@ Tabela de conteúdos
   * [ORM COnfig](#ORMConfig)
 * [🎲 Como rodar o projeto](#🎲-como-rodar-o-projeto)
 * [Features](#features)
+* [🛠 Tecnologias](#🛠-tecnologias)
 <!--te-->
 
 ## Badges
@@ -117,3 +118,23 @@ $ npm run dev
 - [x] SignIn/SignOut
 - [x] Listagem dos agendamentos do dia por data
 - [x] Envio de e-mail
+
+
+## 🛠 Tecnologias
+
+- [Node.js](https://nodejs.org/en/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Jest](https://jestjs.io/)
+- [TypeORM](https://typeorm.io/#/)
+- [Celebrate](https://github.com/arb/celebrate)
+- [Postgres](https://www.postgresql.org/)
+- [Mongodb](https://www.mongodb.com/)
+- [Redis](https://redis.io/)
+- [Ethereal mail](https://ethereal.email/)
+- [Multer](https://github.com/expressjs/multer)
+- [Handlebars](https://handlebarsjs.com/)
+- [Express](https://expressjs.com/)
+- [Docker](https://www.docker.com/)
+- [Rate Limiter Flexible](https://github.com/animir/node-rate-limiter-flexible)
+
+
