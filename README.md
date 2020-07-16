@@ -26,6 +26,7 @@ Tabela de conteúdos
 * [🎲 Como rodar o projeto](#🎲-como-rodar-o-projeto)
 * [Features](#features)
 * [🛠 Tecnologias](#🛠-tecnologias)
+* [🧪 Testes](#🧪-testes)
 <!--te-->
 
 ## Pré-requisitos
@@ -149,3 +150,8 @@ $ npm run dev
 - [Rate Limiter Flexible](https://github.com/animir/node-rate-limiter-flexible)
 
 
+## 🧪 Testes
+
+<p align="center">
+  <img src=".github/tests.png" />
+</p>
