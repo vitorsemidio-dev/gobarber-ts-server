@@ -141,10 +141,13 @@ $ git clone git@github.com:vitorsemidio-dev/gobarber-ts-server.git
 $ cd gobarber-ts-server
 
 # Instale as dependências
-$ npm install
+$ yarn
+
+# Rode as migrations
+$ yarn typeorm migration:run
 
 # Execute a aplicação em modo de desenvolvimento
-$ npm run dev
+$ yarn dev
 
 # O servidor inciará na porta:3333 - acesse <http://localhost:3333>
 ```
